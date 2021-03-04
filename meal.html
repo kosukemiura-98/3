@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="img/favicon.ico">
 
     <!-- Primary Meta Tags -->
     <title>お料理 - 石井花壇 | 温海温泉旅館【公式サイト】</title>
@@ -36,10 +36,14 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
+    <!-- flat picker -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
     <!-- original -->
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -47,7 +51,7 @@
         <div class="container header-container">
             <h1 class="header-title">
                 <a href="index.html" class="header-title-link">
-                    <img src="sub-header-logo.png">
+                    <img src="img/sub-header-logo.png">
                 </a>
             </h1>
             <ul class="header-list">
@@ -62,7 +66,7 @@
                 </li>
             </ul>
             <div class="header-btnArea">
-                <a href="#" class="btn">宿泊予約</a>
+                <a href="#" class="btn modal-open">宿泊予約</a>
             </div>
             <div id="navArea">
                 <nav>
@@ -101,7 +105,7 @@
             <div class="container">
                 <ul class="room-list" data-aos="fade-up" data-aos-duration="1500">
                     <li class="room-item">
-                        <a href="index.html" class="room-item-link">トップ</a>
+                        <a href="#" class="room-item-link">トップ</a>
                     </li>
                     <li class="room-item">お料理</li>
                 </ul>
@@ -113,7 +117,7 @@
                 <div class="room-wrapper">
                     <div class="room-box">
                         <div class="room-picture" data-aos="fade-up" data-aos-duration="1500">
-                            <img src="menu01.jpg">
+                            <img src="img/menu01.jpg">
                         </div>
                         <div class="room-textArea" data-aos="fade-up" data-aos-duration="1500">
                             <p class="room-title" data-aos="fade-up" data-aos-duration="1800">地元食材にこだわった会席料理</p>
@@ -126,7 +130,7 @@
                     </div>
                     <div class="room-box">
                         <div class="room-picture" data-aos="fade-up" data-aos-duration="1500">
-                            <img src="menu02.jpg">
+                            <img src="img/menu02.jpg">
                         </div>
                         <div class="room-textArea" data-aos="fade-up" data-aos-duration="1500">
                             <p class="room-title" data-aos="fade-up" data-aos-duration="1800">熱海の漁港で目利きの品を</p>
@@ -139,7 +143,7 @@
                     </div>
                     <div class="room-box">
                         <div class="room-picture" data-aos="fade-up" data-aos-duration="1500">
-                            <img src="menu03.jpg">
+                            <img src="img/menu03.jpg">
                         </div>
                         <div class="room-textArea" data-aos="fade-up" data-aos-duration="1500">
                             <p class="room-title" data-aos="fade-up" data-aos-duration="1800">食材が一流、職人も一流</p>
@@ -169,7 +173,7 @@
             </li>
         </ul>
         <div class="footer-logoArea">
-            <img src="footer-logo.png" class="footer-logo">
+            <img src="img/footer-logo.png" class="footer-logo">
         </div>
         <div class="footer-textArea">
             <p class="footer-text">
@@ -185,6 +189,59 @@
             <p class="footer-copyright-text">Copyright © 石井花壇 All Rights Reserved.</p>
         </div>
     </footer>
+
+    <div class="modal">
+        <div class="modal-wrapper">
+            <div class="modal-picture modal-close">
+                <img src="img/close.png">
+            </div>
+            <h2 class="modal-mainTitle">宿泊予約</h2>
+            <form action="#" class="modal-form">
+                <dl class="modal-item">
+                    <dt class="modal-title">
+                        <label for="name">お名前</label>
+                    </dt>
+                    <dd class="modal-input">
+                        <input type="text" name="text" id="name" placeholder="例：石井正悟">
+                    </dd>
+                </dl>
+                <dl class="modal-item">
+                    <dt class="modal-title">
+                        <label for="email">メールアドレス</label>
+                    </dt>
+                    <dd class="modal-input">
+                        <input type="email" name="email" id="email" placeholder="例：Example@example.com">
+                    </dd>
+                </dl>
+                <dl class="modal-item">
+                    <dt class="modal-title">
+                        <label for="plan">ご希望プラン（空いているプランのみ表示されます）</label>
+                    </dt>
+                    <dd class="modal-input">
+                        <select name="plan" id="plan">
+                            <option value="#" hidden>プランを選択してください</option>
+                            <option value="kaiseki">【期間限定】海辺の四季旬彩、贅沢美味懐石プラン</option>
+                            <option value="lodging">平日に優雅に楽しむ、特別宿泊プラン</option>
+                            <option value="family">絶景貸切露天と個室会席を満喫できるファミリープラン</option>
+                        </select>
+                    </dd>
+                </dl>
+                <dl class="modal-item">
+                    <dt class="modal-title">
+                        <label for="date">日時選択</label>
+                    </dt>
+                    <dd class="modal-input">
+                        <input type="text" readonly="readonly" class="flatpickr" placeholder="日時を選択してください">
+                    </dd>
+                </dl>
+                <dl class="modal-footer">
+                    <input type="submit" value="送信する">
+                </dl>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-background modal-close"></div>
 </body>
 
 </html>
