@@ -1,34 +1,10 @@
-function slideSwitch() {
-    var $active = $('#mainimage ul li.active');
-
-    if ($active.length == 0) $active = $('#mainimage ul li:last');
-
-    var $next = $active.next().length ? $active.next() : $('#mainimage ul li:first');
-
-    if ($(window).width() >= 980) {
-        $active.animate({ 'width': '110%', 'left': '-5%' }, 5000).delay(1000).queue(function () {
-            $active.find('img').animate({ 'opacity': '0' }, 1000, function () {
-                $active.addClass('last-active');
-                $next.addClass('active');
-                $active.find('img').css({ 'opacity': '1.0' });
-                $active.removeClass('active last-active').css({ 'width': '100%', 'left': '0' }).dequeue();
-            });
-        });
-    } else {
-        $active.animate({ 'width': '110%', 'left': '-5%' }, 7000).delay(1000).queue(function () {
-            $active.find('img').animate({ 'opacity': '0' }, 1000, function () {
-                $active.addClass('last-active');
-                $next.addClass('active');
-                $active.find('img').css({ 'opacity': '1.0' });
-                $active.removeClass('active last-active').css({ 'width': '100%', 'left': '0' }).dequeue();
-            });
-        });
-    }
-};
-
 $(function () {
-    slideSwitch();
-    setInterval("slideSwitch()", 1000);
+    $('.swiper-item img:nth-child(n+2)').hide();
+    setInterval(function () {
+        $(".swiper-item img:first-child").fadeOut(2000);
+        $(".swiper-item img:nth-child(2)").fadeIn(2000);
+        $(".swiper-item img:first-child").appendTo(".swiper-item");
+    }, 4000);
 });
 
 $(function () {
